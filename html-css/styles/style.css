@@ -55,7 +55,7 @@ tfoot{
     text-align: right;
 }
 
-tbody.tr:nth-child(even) {
+tbody tr:nth-child(even) {
     background-color: #E6E6F5;
 }
 
