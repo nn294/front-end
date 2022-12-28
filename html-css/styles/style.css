@@ -32,6 +32,10 @@ blockquote {
     border: 1px solid black;
 }
 
+cite {
+    border: inherit;
+}
+
 blockquote > cite {
     text-transform: uppercase;
 }
