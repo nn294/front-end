@@ -11,22 +11,22 @@ h1.redHeader.pageHeader {
 /* unvisited link */
 a:link {
     color: red;
-  }
+}
   
-  /* visited link */
-  a:visited {
+/* visited link */
+a:visited {
     color: green;
-  }
+}
   
-  /* mouse over link */
-  a:hover {
+/* mouse over link */
+a:hover {
     color: hotpink;
-  }
+}
   
-  /* selected link */
-  a:active {
+/* selected link */
+a:active {
     color: blue;
-  }
+}
 
 blockquote > cite {
     text-transform: uppercase;
