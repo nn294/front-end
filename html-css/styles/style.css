@@ -28,6 +28,10 @@ a:active {
     color: blue;
 }
 
+blockquote {
+    border: 1px solid black;
+}
+
 blockquote > cite {
     text-transform: uppercase;
 }
