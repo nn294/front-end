@@ -1,3 +1,7 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
 h1.redHeader.pageHeader {
     text-align: center;
 }
@@ -28,12 +32,35 @@ a:active {
     color: blue;
 }
 
-blockquote {
+table, th, td {
     border: 1px solid black;
+    border-collapse: collapse;
 }
 
-cite {
-    border: inherit;
+td {
+    padding: 5px;
+}
+
+thead {
+    background-color: #3056A0;
+    color: white;
+}
+
+table.caption {
+    font-weight: bold;
+}
+
+tfoot{
+    font-size: 75%;
+    text-align: right;
+}
+
+tbody.tr:nth-child(even) {
+    background-color: #E6E6F5;
+}
+
+blockquote {
+    border: 1px solid black;
 }
 
 blockquote > cite {
