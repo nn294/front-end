@@ -1,6 +1,6 @@
 # Simple workflow for deploying static content to GitHub Pages
 name: Deploy static content to GitHub Pages within the Repository
-run-name: Deploy to ${{ inputs.deploy_target }} by @${{ github.actor }}
+run-name: Dev deploy to ${{ inputs.deploy_target }} by @${{ github.actor }}
 
 on:
   # Runs on pushes targeting the default branch
@@ -9,6 +9,10 @@ on:
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
+      deploy_target:
+        description: "Target environment for deployment"
+        required: true
+        default: "GitHub Pages"
 
 # Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
 permissions:
