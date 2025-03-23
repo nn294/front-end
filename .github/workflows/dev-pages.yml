@@ -28,16 +28,14 @@ concurrency:
 
 jobs:
   # Single deploy job since we're just deploying
-  build:
-    name: Nothing to build
-    echo "::github.event_name"
-    echo "::github.ref"
 
   deploy:
     environment:
       name: Deploy to GitHub Pages
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
+    echo "::github.event_name"
+    echo "::github.ref"
     steps:
       - name: Checkout
         uses: actions/checkout@v4
