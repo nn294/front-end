@@ -37,8 +37,8 @@ jobs:
     steps:
       - name: Message
         run: |
-          echo "::github.event_name"
-          echo "::github.ref"
+          echo "${{github.event_name}}"
+          echo "${{github.ref}}"
       - name: Checkout
         uses: actions/checkout@v4
       - name: Setup Pages
