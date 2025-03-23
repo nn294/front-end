@@ -34,9 +34,10 @@ jobs:
       name: Deploy to GitHub Pages
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
-    echo "Static Message #1"
-    echo "Static Message #2"
     steps:
+      - name: Message
+        run: echo "Static Message #1"
+        run: echo "Static Message #2"
       - name: Checkout
         uses: actions/checkout@v4
       - name: Setup Pages
