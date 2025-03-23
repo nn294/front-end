@@ -37,8 +37,8 @@ jobs:
     steps:
       - name: Message
         run: |
-          echo "Static Message #1"
-          echo "Static Message #2"
+          echo "::github.event_name"
+          echo "::github.ref"
       - name: Checkout
         uses: actions/checkout@v4
       - name: Setup Pages
