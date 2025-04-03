@@ -3,16 +3,16 @@ name: Deploy static content to GitHub Pages within the Repository
 run-name: Dev deploy by @${{ github.actor }}
 
 on:
-  # Runs on pushes targeting the default branch
-  push:
-    branches-ignore: ["main"]
-
-  # Allows you to run this workflow manually from the Actions tab
+# Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
     deploy_target:
       description: "Target environment for deployment"
       required: true
       default: "GitHub Pages"
+
+# Runs on pushes targeting the default branch
+  push:
+    branches-ignore: ["main"]
 
 # Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
 permissions:
@@ -86,6 +86,20 @@ jobs:
         run: |
           echo "Structure of ${{github.workspace}}:"
           tree ${{github.workspace}}
+
+      - name: Updating build-info.json with Build details
+        shell: pwsh
+        run: |
+          Get-Content ./build-info.json | ConvertFrom-Json 
+#          $json = Get-Content "$(Build.SourcesDirectory)/web/client/src/buildinfo.json" | ConvertFrom-Json 
+
+#          $json.repository = '$(Build.Repository.Name)'
+#          $json.branch = '$(Build.SourceBranchName)'
+#          $json.pipeline = '$(Build.DefinitionName)'
+#          $json.buildNumber = '$(Build.BuildNumber)'
+
+#          $json | ConvertTo-Json | Out-File "$(Build.SourcesDirectory)/web/client/src/buildinfo.json"
+#          Get-Content "$(Build.SourcesDirectory)/web/client/src/buildinfo.json"
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
