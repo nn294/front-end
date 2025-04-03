@@ -5,8 +5,35 @@
         <meta charset="utf-8"/>
         <title>HTML5, JavaScript, and JQuery</title>
         <link rel="stylesheet" type="text/css" href="html-css/styles/style.css"
+        <script>
+            // Fetch and display build-info.json
+            async function loadBuildInfo() {
+                try {
+                    const response = await fetch('build-info.json');
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! status: ${response.status}`);
+                    }
+                    const buildInfo = await response.json();
+                    document.getElementById('build-info').innerText = `
+                        Repository: ${buildInfo.repository}
+                        Branch: ${buildInfo.branch}
+                        Pipeline: ${buildInfo.pipeline}
+                        Build Number: ${buildInfo.buildNumber}
+                        Build Date: ${buildInfo.buildDate}
+                    `;
+                } catch (error) {
+                    console.error('Error loading build-info.json:', error);
+                }
+            }
+
+            // Load build-info.json when the page loads
+            window.onload = loadBuildInfo;
+        </script>
     </head>
     <body>
+        <div id="build-info">
+            <!-- Build info will be dynamically loaded here -->
+        </div>
         <!-- https://nv-natarajan.github.io/front-end/ -->
         <a href="https://www.wrox.com/go/html5jsjquery24hr" target="_blank">HTML5, JavaScript, and JQuery</a> (24-Hour Trainer) written by Dane Cameron and published by wrox.com.
         <ol type="I">
