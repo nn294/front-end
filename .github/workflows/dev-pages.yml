@@ -101,7 +101,7 @@ jobs:
           $currentUtcTime = Get-Date
           $easternTimeZone = [System.TimeZoneInfo]::FindSystemTimeZoneById("Eastern Standard Time")
           $currentEasternTime = [System.TimeZoneInfo]::ConvertTimeFromUtc($currentUtcTime, $easternTimeZone)
-          $json.buildDate = $currentEasternTime -UFormat "%c"
+          $json.buildDate = "$($currentEasternTime -UFormat '%c')"
 
           $json | ConvertTo-Json | Out-File ./build-info.json
           Get-Content ./build-info.json
