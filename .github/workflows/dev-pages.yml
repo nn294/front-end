@@ -98,10 +98,8 @@ jobs:
           $json.pipeline = "${{github.workflow}}"
           $json.buildNumber = "${{github.run_number}}"
 
-          $UtcTime = Get-Date
-          Write-Host "Current UTC Time: $UtcTime"
           $tz = [System.TimeZoneInfo]::FindSystemTimeZoneById("Eastern Standard Time")
-          $easternTime = [System.TimeZoneInfo]::ConvertTimeFromUtc($UtcTime, $tz)
+          $easternTime = [System.TimeZoneInfo]::ConvertTime([DateTimeOffset]::Now, $tz)
           Write-Host "Current Eastern Time: $easternTime"
 
           $json.buildDate = $easternTime
