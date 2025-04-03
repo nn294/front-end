@@ -118,9 +118,8 @@ jobs:
           echo "github.workflow_ref: ${{github.workflow_ref}}"
           echo "github.workflow_sha: ${{github.workflow_sha}}"
           echo "github.workspace: ${{github.workspace}}"
-          echo "Structure of work folder of this pipeline:"
-          pwd
-          ls -alR
+          echo "Structure of ${{github.workspace}}:"
+          tree ${{github.workspace}}
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
