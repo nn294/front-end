@@ -92,7 +92,6 @@ jobs:
         run: |
           Get-Content ./build-info.json
           $json = Get-Content ./build-info.json | ConvertFrom-Json 
-          $json.repository = $({{github.repository}})
           $json.branch = $({{github.ref_name}})
           $json.pipeline = $({{github.workflow}})
           $json.buildNumber = $({{github.run_number}})
