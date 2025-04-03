@@ -97,7 +97,7 @@ jobs:
           $json.branch = "${{github.ref_name}}"
           $json.pipeline = "${{github.workflow}}"
           $json.buildNumber = "${{github.run_number}}"
-          $json.buildDate = "$(Get-Date -UFormat '%c')"
+          $json.buildDate = "[System.TimeZoneInfo]::ConvertTimeBySystemTimeZoneId([DateTime]::Now,"Eastern Standard Time")"
 
           $json | ConvertTo-Json | Out-File ./build-info.json
           Get-Content ./build-info.json
