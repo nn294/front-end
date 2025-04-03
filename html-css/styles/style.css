@@ -10,15 +10,20 @@ body {
 
 /* Container */
 .container {
-    width: 90%;
-    max-width: 1200px;
     margin: 0 auto;
+    max-width: 1200px;
+    width: 90%;
 }
 
 /* Headings */
 h1, h2, h3, h4, h5, h6 {
-    margin: 0 0 15px;
     font-weight: bold;
+    margin: 0 0 15px;}
+
+h1 {
+    color: red;
+    font-family: Arial, Helvetica, sans-serif;
+    text-decoration: underline;
 }
 
 /* Links */
