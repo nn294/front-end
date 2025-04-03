@@ -93,10 +93,10 @@ jobs:
           Get-Content ./build-info.json
           $json = Get-Content ./build-info.json | ConvertFrom-Json 
 
-          $json.repository = ${{github.repository}}
-          $json.branch = ${{github.ref_name}}
-          $json.pipeline = ${{github.workflow}}
-          $json.buildNumber = ${{github.run_number}}
+          $json.repository = ${{github.repository}}.ToString()
+          $json.branch = ${{github.ref_name}}.ToString()
+          $json.pipeline = ${{github.workflow}}.ToString()
+          $json.buildNumber = ${{github.run_number}}.ToString()
 
           $json | ConvertTo-Json | Out-File ./build-info.json
           Get-Content ./build-info.json
