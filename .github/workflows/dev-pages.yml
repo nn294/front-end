@@ -90,11 +90,15 @@ jobs:
       - name: Updating build-info.json with Build details
         shell: pwsh
         run: |
-          Get-Content ./build-info.json
-          Write-Host $GITHUB_REPOSITORY
-          Write-Host $GITHUB_REF_NAME
-          Write-Host $GITHUB_WORKFLOW
-          Write-Host $GITHUB_RUN_NUMBER
+          $json = Get-Content ./build-info.json | ConvertFrom-Json 
+          Get-Content $json | ConvertFrom-Json 
+
+          $json.repository = ${{github.repository}}
+          $json.branch = ${{github.ref_name}}
+          $json.pipeline = ${{github.workflow}}
+          $json.buildNumber = ${{github.run_number}}
+
+          Get-Content $json | ConvertFrom-Json 
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
