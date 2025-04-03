@@ -1,4 +1,9 @@
+/* https: //www.joshwcomeau.com/css/custom-css-reset/ */
 /* Base styles */
+blockquote > cite {
+    text-transform: uppercase;
+}
+
 body {
     margin: 0;
     padding: 0;
@@ -35,6 +40,7 @@ a {
 }
 
 a:hover {
+    color: green;
     text-decoration: underline;
 }
 
