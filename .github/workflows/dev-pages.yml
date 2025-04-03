@@ -91,13 +91,10 @@ jobs:
         shell: pwsh
         run: |
           Get-Content ./build-info.json
-          $json = Get-Content ./build-info.json | ConvertFrom-Json 
-          $json.branch = $({{github.ref_name}})
-          $json.pipeline = $({{github.workflow}})
-          $json.buildNumber = $({{github.run_number}})
-
-          $json | ConvertTo-Json | Out-File ./build-info.json
-          Get-Content ./build-info.json
+          Write-Host "$({{github.repository}})"
+          Write-Host "$({{github.ref_name}})"
+          Write-Host "$({{github.workflow}})"
+          Write-Host "$({{github.run_number}})"
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
