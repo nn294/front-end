@@ -37,7 +37,6 @@ jobs:
     steps:
       - name: System Variables (Initial)
         run: |
-          echo "Greeting. Today is $DAY_OF_WEEK!"
           echo "github.action: ${{github.action}}"
           echo "github.action_path: ${{github.action_path}}"
           echo "github.action_repository: ${{github.action_repository}}"
@@ -75,14 +74,14 @@ jobs:
           echo "github.workflow_sha: ${{github.workflow_sha}}"
           echo "github.workspace: ${{github.workspace}}"
           echo "Structure of work folder of this pipeline:"
-          tree ${{github.workspace}}
+          pwd
+          ls -l
 
       - name: Checkout
         uses: actions/checkout@v4
 
       - name: System Variables (after Checkout)
         run: |
-          echo "Greeting. Today is $DAY_OF_WEEK!"
           echo "github.action: ${{github.action}}"
           echo "github.action_path: ${{github.action_path}}"
           echo "github.action_repository: ${{github.action_repository}}"
@@ -120,7 +119,8 @@ jobs:
           echo "github.workflow_sha: ${{github.workflow_sha}}"
           echo "github.workspace: ${{github.workspace}}"
           echo "Structure of work folder of this pipeline:"
-#         tree $(Agent.WorkFolder)/1
+          pwd
+          ls -l
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
