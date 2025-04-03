@@ -99,9 +99,10 @@ jobs:
           $json.buildNumber = "${{github.run_number}}"
 
           $currentUtcTime = Get-Date
+          Write-Host "Current UTC Time: $currentUtcTime"
           $easternTimeZone = [System.TimeZoneInfo]::FindSystemTimeZoneById("Eastern Standard Time")
           $currentEasternTime = [System.TimeZoneInfo]::ConvertTimeFromUtc($currentUtcTime, $easternTimeZone)
-          $json.buildDate = "$($currentEasternTime -UFormat '%c')"
+          Write-Host "Current Eastern Time: $currentEasternTime"
 
           $json | ConvertTo-Json | Out-File ./build-info.json
           Get-Content ./build-info.json
