@@ -90,16 +90,14 @@ jobs:
       - name: Updating build-info.json with Build details
         shell: pwsh
         run: |
-          Get-Content ./build-info.json | ConvertFrom-Json 
-#          $json = Get-Content "$(Build.SourcesDirectory)/web/client/src/buildinfo.json" | ConvertFrom-Json 
+          $json = Get-Content ./build-info.json | ConvertFrom-Json 
+          $json.repository = ${{github.repository}}
+          $json.branch = ${{github.ref_name}}
+          $json.pipeline = ${{github.workflow}}
+          $json.buildNumber = ${{github.run_number}}
 
-#          $json.repository = '$(Build.Repository.Name)'
-#          $json.branch = '$(Build.SourceBranchName)'
-#          $json.pipeline = '$(Build.DefinitionName)'
-#          $json.buildNumber = '$(Build.BuildNumber)'
-
-#          $json | ConvertTo-Json | Out-File "$(Build.SourcesDirectory)/web/client/src/buildinfo.json"
-#          Get-Content "$(Build.SourcesDirectory)/web/client/src/buildinfo.json"
+          $json | ConvertTo-Json | Out-File ./build-info.json
+          Get-Content ./build-info.json
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
