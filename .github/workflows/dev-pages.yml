@@ -75,7 +75,7 @@ jobs:
           echo "github.workspace: ${{github.workspace}}"
           echo "Structure of work folder of this pipeline:"
           pwd
-          ls -l
+          ls -al
 
       - name: Checkout
         uses: actions/checkout@v4
@@ -120,7 +120,7 @@ jobs:
           echo "github.workspace: ${{github.workspace}}"
           echo "Structure of work folder of this pipeline:"
           pwd
-          ls -l
+          ls -al
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
