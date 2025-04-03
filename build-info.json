@@ -3,5 +3,6 @@
   "repository": "repository",
   "branch": "branch",
   "pipeline": "pipeline",
-  "buildNumber": "buildNumber"
+  "buildNumber": "buildNumber",
+  "buildDate": "Today's date"
 }

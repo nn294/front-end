@@ -97,6 +97,7 @@ jobs:
           $json.branch = "${{github.ref_name}}"
           $json.pipeline = "${{github.workflow}}"
           $json.buildNumber = "${{github.run_number}}"
+          $json.buildDate = "$(Get-Date -Format 'Ddd Mmm dd yyyy THH:mm:ss')"
 
           $json | ConvertTo-Json | Out-File ./build-info.json
           Get-Content ./build-info.json
