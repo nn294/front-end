@@ -97,9 +97,9 @@ jobs:
           Write-Host $({{github.run_number}})
 
           Write-Host $("$github.repository")
-          Write-Host $("{{github.ref_name}}"")
-          Write-Host $("{github.workflow}"")
-          Write-Host $("{{github.run_number}}"")
+          Write-Host $("{{github.ref_name}}")
+          Write-Host $("{github.workflow}")
+          Write-Host $("{{github.run_number}}")
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
