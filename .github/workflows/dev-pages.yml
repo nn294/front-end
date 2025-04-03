@@ -99,7 +99,7 @@ jobs:
           $json.buildNumber = "${{github.run_number}}"
 
           $tz = [System.TimeZoneInfo]::FindSystemTimeZoneById("Eastern Standard Time")
-          $easternTime = [System.TimeZoneInfo]::ConvertTime([DateTimeOffset]::Now, $tz)
+          $easternTime = "$([System.TimeZoneInfo]::ConvertTime([DateTimeOffset]::Now, $tz) -UFormat '%c')"
           Write-Host "Current Eastern Time: $easternTime"
 
           $json.buildDate = $easternTime
