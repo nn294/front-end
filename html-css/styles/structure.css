@@ -1,11 +1,12 @@
 /* Setup the web page structure  */
 #header {
     background: pink;
-    height: 100px;
+    height: 75px;
 }
 #leftnav {
     background: orange;
     float: left;
+    height: 100%;
     width: 20%;
 }
 #content {
@@ -14,6 +15,7 @@
 #rightbar {
     background: blue;
     float: right;
+    height: 100%;
     width: 20%;
 }
 #footer {
