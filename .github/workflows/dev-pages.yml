@@ -93,16 +93,16 @@ jobs:
           Get-Content ./html-css/scripts/build-info.js
           $buildinfo = Get-Content ./html-css/scripts/build-info.js
 
-          $buildinfo = $buildinfo -replace "&&!!repository!!", "${{github.repository}}"
-          $buildinfo = $buildinfo -replace "&&!!branchrepository!!", "${{github.ref_name}}"
-          $buildinfo = $buildinfo -replace "&&!!pipeline!!", "${{github.workflow}}"
-          $buildinfo = $buildinfo -replace "&&!!buildnumber!!", "${{github.run_number}}"
+          $buildinfo = $buildinfo -replace "&&!!repository!!&&", "${{github.repository}}"
+          $buildinfo = $buildinfo -replace "&&!!branch!!&&", "${{github.ref_name}}"
+          $buildinfo = $buildinfo -replace "&&!!pipeline!!&&", "${{github.workflow}}"
+          $buildinfo = $buildinfo -replace "&&!!buildnumber!!&&", "${{github.run_number}}"
 
           $tz = [System.TimeZoneInfo]::FindSystemTimeZoneById("Eastern Standard Time")
           $easternTime = [System.TimeZoneInfo]::ConvertTime([DateTimeOffset]::Now, $tz)
           $easternTime = $easternTime.ToString("ddd MMM dd yyyy HH:mm:ss")
           Write-Host "Current Eastern Time: $easternTime"
-          $buildinfo = $buildinfo -replace "&&!!builddate!!", $easternTime
+          $buildinfo = $buildinfo -replace "&&!!builddate!!&&", $easternTime
 
           Set-Content -Path ./html-css/scripts/build-info.js -Value $buildinfo
           Get-Content ./html-css/scripts/build-info.js
