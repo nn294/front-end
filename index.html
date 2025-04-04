@@ -7,32 +7,31 @@
     <title>HTML5, JavaScript, and JQuery</title>
     <link rel="stylesheet" type="text/css" href="html-css/styles/reset.css">
     <link rel="stylesheet" type="text/css" href="html-css/styles/structure.css" <link rel="stylesheet" type="text/css"
-        href="html-css/styles/common.css" </head>
+        href="html-css/styles/common.css" <script src="html-css/scripts/build-info.js" defer>
+    </script>
+</head>
 
 <body>
     <!-- https://nv-natarajan.github.io/front-end/ -->
-    <div id="build-info">
-        <!-- Build info will be dynamically loaded here -->
-    </div>
     <div id="header">
         <h2><a href="https://www.wrox.com/go/html5jsjquery24hr" target="_blank">HTML5, JavaScript, and JQuery</a>
             (24-Hour Trainer) written by Dane Cameron and published by wrox.com.</h2>
     </div>
     <div id="leftnav">
         <details>
-            <summary><a href="html-css/part-1.html">Part I</a>: HTML and CSS<< /summary>
-                    <ol>
-                        Chapter 1. Introduction to HTML5<br>
-                        Chapter 2. Basic HTML<br>
-                        Chapter 3. Lists and Tables<br>
-                        Chapter 4. Introduction to CSS<br>
-                        Chapter 5. Structuring Pages with CSS<br>
-                        Chapter 6. HTML Forms<br>
-                        Chapter 7. Semantic Tags<br>
-                        Chapter 8. HTML5 Validation<br>
-                        Chapter 9. Drag and Drop<br>
-                        Chapter 10. Dynamic Elements<br>
-                    </ol>
+            <summary><a href="html-css/part-1.html">Part I</a>: HTML and CSS</summary>
+            <ol>
+                Chapter 1. Introduction to HTML5<br>
+                Chapter 2. Basic HTML<br>
+                Chapter 3. Lists and Tables<br>
+                Chapter 4. Introduction to CSS<br>
+                Chapter 5. Structuring Pages with CSS<br>
+                Chapter 6. HTML Forms<br>
+                Chapter 7. Semantic Tags<br>
+                Chapter 8. HTML5 Validation<br>
+                Chapter 9. Drag and Drop<br>
+                Chapter 10. Dynamic Elements<br>
+            </ol>
         </details>
         <details>
             <summary><a href="html-css/part-2.html">Part II</a>: Dynamic HTML5 Web Applications with Javascript and
@@ -88,8 +87,11 @@
     </div>
     <div id="content">This is the content</div>
     <div id="rightbar">This is the right bar</div>
-    <div id="footer">This is the footer</div>
-    <script src="html-css/scripts/build-info.js" defer></script>
+    <div id="footer">
+        <div id="build-info">
+            <!-- Build info will be dynamically loaded here -->
+        </div>
+    </div>
 </body>
 
 </html>
