@@ -90,22 +90,22 @@ jobs:
       - name: Updating build-info.json with Build details
         shell: pwsh
         run: |
-          Get-Content ./build-info.json
-          $json = Get-Content ./build-info.json | ConvertFrom-Json 
+          Get-Content ./build-info.js
+          $buildinfo = Get-Content ./build-info.js
 
-          $json.repository = "${{github.repository}}"
-          $json.branch = "${{github.ref_name}}"
-          $json.pipeline = "${{github.workflow}}"
-          $json.buildNumber = "${{github.run_number}}"
+          $buildinfo = $buildinfo -replace "&&!!repository!!", "${{github.repository}}"
+          $buildinfo = $buildinfo -replace "&&!!branchrepository!!", "${{github.ref_name}}"
+          $buildinfo = $buildinfo -replace "&&!!pipeline!!", "${{github.workflow}}"
+          $buildinfo = $buildinfo -replace "&&!!buildnumber!!", "${{github.run_number}}"
 
           $tz = [System.TimeZoneInfo]::FindSystemTimeZoneById("Eastern Standard Time")
           $easternTime = [System.TimeZoneInfo]::ConvertTime([DateTimeOffset]::Now, $tz)
           $easternTime = $easternTime.ToString("ddd MMM dd yyyy HH:mm:ss")
           Write-Host "Current Eastern Time: $easternTime"
+          $buildinfo = $buildinfo -replace "&&!!builddate!!", $easternTime
 
-          $json.buildDate = $easternTime
-          $json | ConvertTo-Json | Out-File ./build-info.json
-          Get-Content ./build-info.json
+          Set-Content -Path ./build-info.js -Value $buildinfo
+          Get-Content ./build-info.js
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
