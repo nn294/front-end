@@ -1,6 +1,5 @@
 // Fetch and display build-info.json
 async function loadBuildInfo() {
-    const buildInfo = await response.json();
     document.getElementById('build-info').innerText = `
     Repository: "&&!!repository!!&&"
     Branch: "&&!!branch!!&&"
