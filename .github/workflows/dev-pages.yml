@@ -90,8 +90,8 @@ jobs:
       - name: Updating build-info.json with Build details
         shell: pwsh
         run: |
-          Get-Content ./build-info.js
-          $buildinfo = Get-Content ./build-info.js
+          Get-Content ./scripts/build-info.js
+          $buildinfo = Get-Content ./scripts/build-info.js
 
           $buildinfo = $buildinfo -replace "&&!!repository!!", "${{github.repository}}"
           $buildinfo = $buildinfo -replace "&&!!branchrepository!!", "${{github.ref_name}}"
@@ -104,8 +104,8 @@ jobs:
           Write-Host "Current Eastern Time: $easternTime"
           $buildinfo = $buildinfo -replace "&&!!builddate!!", $easternTime
 
-          Set-Content -Path ./build-info.js -Value $buildinfo
-          Get-Content ./build-info.js
+          Set-Content -Path ./scripts/build-info.js -Value $buildinfo
+          Get-Content ./scripts/build-info.js
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
