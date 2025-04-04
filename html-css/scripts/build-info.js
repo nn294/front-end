@@ -2,7 +2,7 @@
             // Fetch and display build-info.json
     async function loadBuildInfo() {
                 try {
-                    const response = await fetch('build-info.json');
+                    const response = await fetch('./build-info.json');
     if (!response.ok) {
                         throw new Error(`HTTP error! status: ${response.status}`);
                     }
