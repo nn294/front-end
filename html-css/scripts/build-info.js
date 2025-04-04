@@ -10,4 +10,4 @@ async function loadBuildInfo() {
     `;
 }
 // Load build-info.json when the page loads
-//    window.onload = loadBuildInfo;
+window.onload = loadBuildInfo;
