@@ -7,7 +7,6 @@
     background: orange;
     float: left;
     height: 100%;
-    position: fixed;
     width: 20%;
 }
 #content {
@@ -17,7 +16,6 @@
     background: blue;
     float: right;
     height: 100vh;
-    position: fixed;
     width: 20%;
 }
 #footer {
