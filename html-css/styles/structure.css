@@ -1,4 +1,7 @@
 /* Setup the web page structure  */
+html, body {
+    height: 100%;
+}
 #header {
     background: pink;
     height: 75px;
